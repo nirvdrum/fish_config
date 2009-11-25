@@ -56,7 +56,12 @@ function sc -d "Run the Rails console"
 	script/console
 end
 
-set -x JAVA_HOME "/usr/"
+set -x JAVA_HOME "/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
+
+# Set up go language environment.
+set -x GOROOT (brew --prefix)/Cellar/go/HEAD
+set -x GOARCH amd64
+set -x GOOS darwin
 
 
 
