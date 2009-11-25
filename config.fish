@@ -1,5 +1,5 @@
 if status --is-login
-	for p in /usr/bin /usr/local/bin /opt/local/bin /usr/local/mysql/bin /opt/local/lib/postgresql83/bin ~/bin ~/.config/fish/bin 
+	for p in /usr/local/mysql/bin ~/.config/fish/bin ~/homebrew/bin
 		if test -d $p
 			set PATH $p $PATH
 		end
@@ -25,8 +25,6 @@ function parse_svn_revision
 end
 
 function fish_prompt -d "Write out the prompt"
-	printf '%s%s@%s%s' (set_color brown) (whoami) (hostname|cut -d . -f 1) (set_color normal) 
-
 	# Color writeable dirs green, read-only dirs red
 	if test -w "."
 		printf ' %s%s' (set_color green) (prompt_pwd)
