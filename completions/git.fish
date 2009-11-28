@@ -93,6 +93,10 @@ complete -f -c git -n '__fish_git_needs_command'    -a checkout -d 'Checkout and
 complete -c git -n '__fish_git_using_command checkout'  -a '(__fish_git_branches)' --description 'Branch'
 complete -c git -n '__fish_git_using_command checkout'  -a '(__fish_git_tags)' --description 'Tag'
 complete -c git -n '__fish_git_using_command checkout' -s b -d 'Create a new branch'
+complete -f -c git -n '__fish_git_needs_command'    -a co -d 'Checkout and switch to a branch'
+complete -c git -n '__fish_git_using_command co'  -a '(__fish_git_branches)' --description 'Branch'
+complete -c git -n '__fish_git_using_command co'  -a '(__fish_git_tags)' --description 'Tag'
+complete -c git -n '__fish_git_using_command co' -s b -d 'Create a new branch'
 # TODO options
 
 ### apply
@@ -115,6 +119,13 @@ complete -f -c git -n '__fish_git_using_command branch' -s D -d 'Force deletion 
 complete -f -c git -n '__fish_git_using_command branch' -s m -d 'Rename branch'
 complete -f -c git -n '__fish_git_using_command branch' -s M -d 'Force renaming branch'
 complete -f -c git -n '__fish_git_using_command branch' -s a -d 'Lists both local and remote branches'
+complete -f -c git -n '__fish_git_needs_command' -a br -d 'List, create, or delete branches'
+complete -f -c git -n '__fish_git_using_command br' -a '(__fish_git_branches)' -d 'Branch'
+complete -f -c git -n '__fish_git_using_command br' -s d -d 'Delete Branch'
+complete -f -c git -n '__fish_git_using_command br' -s D -d 'Force deletion of branch'
+complete -f -c git -n '__fish_git_using_command br' -s m -d 'Rename branch'
+complete -f -c git -n '__fish_git_using_command br' -s M -d 'Force renaming branch'
+complete -f -c git -n '__fish_git_using_command br' -s a -d 'Lists both local and remote branches'
 
 ### cherry-pick
 complete -f -c git -n '__fish_git_needs_command' -a cherry-pick -d 'Apply the change introduced by an existing commit' 
@@ -127,6 +138,7 @@ complete -f -c git -n '__fish_git_needs_command' -a clone -d 'Clone a repository
 
 ### commit
 complete -c git -n '__fish_git_needs_command'    -a commit -d 'Record changes to the repository'
+complete -c git -n '__fish_git_needs_command'    -a ci -d 'Record changes to the repository'
 complete -c git -n '__fish_git_using_command commit' -l amend -d 'Amend the log message of the last commit'
 # TODO options
 
@@ -201,6 +213,7 @@ complete -c git -n '__fish_git_needs_command'    -a rm -d 'Remove files from the
 
 ### status
 complete -f -c git -n '__fish_git_needs_command' -a status -d 'Show the working tree status'
+complete -f -c git -n '__fish_git_needs_command' -a st -d 'Show the working tree status'
 # TODO options
 
 ### tag
