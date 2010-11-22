@@ -1,10 +1,10 @@
-if status --is-login
-	for p in /usr/local/mysql/bin ~/.config/fish/bin ~/homebrew/bin
+#if status --is-login
+	for p in /usr/local/mysql/bin ~/.config/fish/bin ~/homebrew/bin ~/homebrew/share/npm/bin
 		if test -d $p
 			set PATH $p $PATH
 		end
 	end
-end
+#end
 
 # Textmate defaults to /usr/bin/mate, but let's check for /usr/local/bin/mate
 if test -f "/usr/local/bin/mate"
@@ -57,11 +57,23 @@ function sc -d "Run the Rails console"
 end
 
 set -x JAVA_HOME "/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
+set -x MAVEN_OPTS -Xmx512m
+
+set -x EC2_PRIVATE_KEY (/bin/ls ~/.ec2_mogo/pk-*.pem)
+set -x EC2_CERT (/bin/ls ~/.ec2_mogo/cert-*.pem)
+set -x EC2_HOME (brew --prefix)/Cellar/ec2-api-tools/1.3-51254/jars
 
 # Set up go language environment.
 set -x GOROOT (brew --prefix)/Cellar/go/HEAD
 set -x GOARCH amd64
 set -x GOOS darwin
 
+set -x ARCHFLAGS "-arch x86_64"
 
+set -x NODE_PATH (brew --prefix)/lib/node
 
+# Set up SSH key for agent forwarding
+ssh-add
+ssh-add ~/.ec2_mogo/mogo
+
+rvm use default
