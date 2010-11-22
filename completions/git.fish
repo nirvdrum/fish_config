@@ -4,6 +4,14 @@ function __fish_git_branches
   git branch --no-color -a 2>/dev/null | sed 's/^..//'
 end
 
+function __fish_git_local_branches
+  git branch --no-color -l 2>/dev/null | sed 's/^..//'
+end
+
+function __fish_git_remote_branches
+  git branch --no-color -r 2>/dev/null | sed 's/^..//'
+end
+
 function __fish_git_tags
   git tag
 end
@@ -237,3 +245,11 @@ complete -f -c git -n '__fish_git_using_command format-patch' -a '(__fish_git_br
 
 ### aliases (custom user-definer commands)
 complete -c git -n '__fish_git_needs_command' -a '(git config --get-regexp alias | sed -e "s/^alias\.\(\S\+\).*/\1/")' -d 'Alias (user-defined command)'
+
+### Removes a branch locally and remotely
+complete -f -c git -n '__fish_git_needs_command' -a rmbr -d 'Remove a branch locally and remotely'
+complete -c git -n '__fish_git_using_command rmbr' -a '(__fish_git_local_branches)' --description 'Branch'
+
+### Removes a branch remotely
+complete -f -c git -n '__fish_git_needs_command' -a rmremote -d 'Remove a branch remotely'
+complete -c git -n '__fish_git_using_command rmremote' -a '(__fish_git_remote_branches)' --description 'Branch'
