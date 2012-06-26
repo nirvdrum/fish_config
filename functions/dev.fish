@@ -4,12 +4,7 @@ function dev
     if test -d $dir
       cd $dir
     else
-      set dir ~/dev/workspaces-java/$argv
-      if test -d $dir
-        cd $dir
-      else
-        echo "Cannot find any project named '$argv'"
-      end
+      echo "Cannot find any project named '$argv'"
     end
   else
     echo "Usage: dev <project>"
