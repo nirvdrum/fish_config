@@ -1,6 +1,6 @@
 function __cache_or_get_rake_completion -d "Create rake completions"
     mkdir -p "/tmp/rake_completion_cache_for_$USER"
-	set -l hashed_pwd (echo (pwd) | md5sum)
+	set -l hashed_pwd (echo (pwd) | md5sum | cut -d " " -f 1)
 	set -l rake_cache_file "/tmp/rake_completion_cache_for_$USER/$hashed_pwd"
 	
 	if not test -f "$rake_cache_file"

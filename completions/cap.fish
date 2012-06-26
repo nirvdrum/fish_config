@@ -1,6 +1,6 @@
 function __cache_or_get_cap_completion -d "Create cap completions"
     mkdir -p "/tmp/cap_completion_cache"
-	set -l hashed_pwd (echo (pwd) | md5sum)
+	set -l hashed_pwd (echo (pwd) | md5sum | cut -d " " -f 1)
 	set -l cap_cache_file "/tmp/cap_completion_cache/$hashed_pwd"
 	
 	if not test -f "$cap_cache_file"
