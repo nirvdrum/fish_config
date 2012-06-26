@@ -68,7 +68,6 @@ set -x GOOS darwin
 set -x ARCHFLAGS "-arch x86_64"
 
 
-# Set up SSH key for agent forwarding
+# Set up SSH key agent forwarding
 ssh-add
-ssh-add ~/.ec2_mogo/mogo
 
