@@ -57,6 +57,10 @@ function sc -d "Run the Rails console"
 end
 
 set -x MAVEN_OPTS -Xmx512m
+set -x TORQUEBOX_HOME /opt/torquebox
+set -x JBOSS_HOME $TORQUEBOX_HOME/jboss
+
+set -x JRUBY_OPTS "--1.9 --client -Xcext.enabled=true"
 
 set -x EC2_PRIVATE_KEY (/bin/ls ~/.ec2_mogo/pk-*.pem)
 set -x EC2_CERT (/bin/ls ~/.ec2_mogo/cert-*.pem)
