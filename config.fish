@@ -1,6 +1,6 @@
 #if status --is-login
-	for p in ~/.config/fish/bin 
-		if test -d $p
+	for p in ~/.config/fish/bin /opt/android-sdk-linux/tools /opt/sublime /opt/scala/bin /opt/maven/bin $HOME/.rbenv/bin $HOME/.rbenv/shims ./bin
+		if test -d $p 
 			set PATH $p $PATH
 		end
 	end
@@ -56,7 +56,6 @@ function sc -d "Run the Rails console"
 	script/console
 end
 
-set -x JAVA_HOME "/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
 set -x MAVEN_OPTS -Xmx512m
 
 set -x EC2_PRIVATE_KEY (/bin/ls ~/.ec2_mogo/pk-*.pem)
